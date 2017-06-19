@@ -16,7 +16,7 @@ import top.shixinzhang.office.utils.ActivityUtils;
 
 /**
  * Description:
- * <br>
+ * <br> Activity 基类，封装了 Fragment 的添加
  * <p>
  * <br> Created by shixinzhang on 17/6/19.
  * <p>

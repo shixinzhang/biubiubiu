@@ -5,7 +5,7 @@ import top.shixinzhang.office.base.BaseView;
 
 /**
  * Description:
- * <br> 登录的契约类
+ * <br> 登录的契约类，其中定义 View 和 Presenter
  * <p>
  * <br> Created by shixinzhang on 17/6/19.
  * <p>
@@ -15,6 +15,9 @@ import top.shixinzhang.office.base.BaseView;
  */
 
 public interface LoginContract {
+    /**
+     * 定义界面上要提供的信息和效果
+     */
     interface View extends BaseView<Presenter> {
         void showLoadingView();
 
@@ -31,10 +34,13 @@ public interface LoginContract {
         boolean agreeProtocol();    //同意协议
     }
 
+    /**
+     * 定义页面上要进行的操作
+     */
     interface Presenter extends BasePresenter {
         void openProtocol();
 
-        boolean login(String account, String password);    //登录
+        void login(String account, String password);    //登录
 
         void openRegister();    //去注册
 

@@ -4,11 +4,15 @@ import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import top.shixinzhang.office.utils.CheckUtils;
+import top.shixinzhang.office.base.ResultCallback;
+import top.shixinzhang.office.data.source.LoginModel;
+import top.shixinzhang.office.data.source.LoginRepository;
+
+import static top.shixinzhang.office.utils.CheckUtils.checkNotNull;
 
 /**
  * Description:
- * <br>
+ * <br> 登录的逻辑操作
  * <p>
  * <br> Created by shixinzhang on 17/6/19.
  * <p>
@@ -19,10 +23,12 @@ import top.shixinzhang.office.utils.CheckUtils;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
+    private LoginModel mRepository;
     private LoginContract.View mLoginView;
 
-    public LoginPresenter(@NonNull LoginContract.View view) {
-        mLoginView = CheckUtils.checkNotNull(view);
+    public LoginPresenter(@NonNull LoginModel repository, @NonNull LoginContract.View view) {
+        mRepository = checkNotNull(repository);
+        mLoginView = checkNotNull(view);
         mLoginView.setPresenter(this);
     }
 
@@ -32,16 +38,15 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public boolean login(final String account, final String password) {
+    public void login(final String account, final String password) {
         if (TextUtils.isEmpty(account) || TextUtils.isEmpty(password)) {
             mLoginView.showTips("请输入账户或密码");
-            return false;
+            return;
         }
         if (!mLoginView.agreeProtocol()) {
             mLoginView.showTips("请同意协议");
-            return false;
+            return;
         }
-        boolean fakeResult = account.equals(password);
         mLoginView.showLoadingView();
         new Thread(new Runnable() {
             @Override
@@ -50,7 +55,19 @@ public class LoginPresenter implements LoginContract.Presenter {
                 mLoginView.stopLoadingView();
             }
         }).start();
-        return fakeResult;
+
+        mRepository.login(account, password, new ResultCallback() {
+            @Override
+            public void onSuccess(final Object o) {
+
+            }
+
+            @Override
+            public void onFailed(final Throwable e) {
+
+            }
+        });
+
     }
 
     @Override

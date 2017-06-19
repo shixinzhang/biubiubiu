@@ -3,9 +3,8 @@ package top.shixinzhang.office.login;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import top.shixinzhang.office.R;
 import top.shixinzhang.office.base.BaseFragmentActivity;
-import top.shixinzhang.office.utils.ActivityUtils;
+import top.shixinzhang.office.data.source.LoginRepository;
 
 /**
  * Description:
@@ -25,7 +24,7 @@ public class LoginActivity extends BaseFragmentActivity {
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        new LoginPresenter(getFragment());
+        new LoginPresenter(LoginRepository.getInstance(), getFragment());
     }
 
     @Override
@@ -36,4 +35,9 @@ public class LoginActivity extends BaseFragmentActivity {
         return mFragment;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LoginRepository.destroyInstance();
+    }
 }
