@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:paddingLeft="24dp"
+              android:paddingRight="24dp">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="32dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_manage"/>
+
+        <EditText
+            android:id="@+id/edit_account"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:hint="@string/input_account"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/text_input"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_manage"/>
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:hint="@string/input_password"
+            android:inputType="textPassword"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/text_input"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/cb_agree_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/agree_protocol_left"
+            android:textSize="@dimen/text_tip"
+            />
+
+        <TextView
+            android:id="@+id/tv_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_protocol"
+            android:textSize="@dimen/text_tip"
+            android:textColor="@color/red_d7"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="登录"
+        android:textSize="@dimen/text_button"
+        />
+</LinearLayout>
