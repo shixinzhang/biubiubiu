@@ -23,6 +23,11 @@
             android:name=".login.LoginActivity"
             android:label="@string/label_login"
             android:launchMode="singleTop"/>
+
+        <activity
+            android:name=".test.DaggerSampleActivity"
+            android:label="dagger_sample"
+            android:launchMode="singleTop"/>
     </application>
 
 </manifest>

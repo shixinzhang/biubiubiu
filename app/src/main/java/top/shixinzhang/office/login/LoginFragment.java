@@ -57,9 +57,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
 
     @OnClick(R.id.btn_login)
     public void clickLogin() {
-        if (mPresenter.login(getAccount(), getPassword())) {
-            showTips("登录成功");
-        }
+        mPresenter.login(getAccount(), getPassword());
     }
 
     @OnClick(R.id.tv_protocol)
