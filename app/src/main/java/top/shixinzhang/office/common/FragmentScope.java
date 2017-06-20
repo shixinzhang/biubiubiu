@@ -1,9 +1,10 @@
-package top.shixinzhang.office.test.howtouse.qualifier;
+package top.shixinzhang.office.common;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import javax.inject.Qualifier;
+import javax.inject.Scope;
 
 /**
  * Description:
@@ -16,7 +17,8 @@ import javax.inject.Qualifier;
  * <br> https://about.me/shixinzhang
  */
 
-@Qualifier
+@Scope
+@Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ContextCoder {
+public @interface FragmentScope {
 }

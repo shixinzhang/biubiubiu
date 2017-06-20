@@ -1,8 +1,7 @@
-package top.shixinzhang.office;
+package top.shixinzhang.office.common;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.widget.Toast;
 
 import javax.inject.Singleton;
 
@@ -21,21 +20,11 @@ import dagger.Provides;
  */
 
 @Module
-public class ApplicationModule {
-    private Context mContext;
-
-    public ApplicationModule(final Context context) {
-        mContext = context;
-    }
-
-    @Provides
-    Context provideContext() {
-        return mContext;
-    }
+public class ProgressModule {
 
     @Singleton
     @Provides
     ProgressDialog provideProgress(Context context) {
-        return new ProgressDialog(context);
+        return ProgressDialog.show(context, null, "加载中");
     }
 }

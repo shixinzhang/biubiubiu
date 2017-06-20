@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import top.shixinzhang.office.common.ContextModule;
+import top.shixinzhang.office.common.ProgressModule;
 
 /**
  * Description:
@@ -21,31 +23,29 @@ import dagger.Component;
 
 public class MyApplication extends Application {
 
-    @Inject
-    ApplicationComponent  mComponent;
-    @Inject
-    ProgressDialog mProgressDialog;
+    AppComponent mComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        mComponent = DaggerMyApplication_ApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
-        mComponent.inject(this);
+        mComponent = DaggerMyApplication_AppComponent.builder()
+                .contextModule(new ContextModule(this))
+                .progressModule(new ProgressModule())
+                .build();
     }
 
-    public ApplicationComponent getComponent() {
+    public AppComponent getComponent() {
         return mComponent;
     }
 
-    public ProgressDialog getProgressDialog() {
-        return mProgressDialog;
-    }
 
+    /**
+     * 注入全局通用的一些单例对象¬
+     */
     @Singleton
-    @Component(modules = ApplicationModule.class)
-    public interface ApplicationComponent {
-        void inject(MyApplication application);
-//        void inject(DaggerSampleActivity activity);
+    @Component(modules = {ContextModule.class, ProgressModule.class})
+    public interface AppComponent {
+        ProgressDialog getProgressDialog();
     }
 }

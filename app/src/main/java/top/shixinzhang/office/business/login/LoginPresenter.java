@@ -1,12 +1,13 @@
-package top.shixinzhang.office.login;
+package top.shixinzhang.office.business.login;
 
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import javax.inject.Inject;
+
 import top.shixinzhang.office.base.ResultCallback;
 import top.shixinzhang.office.data.source.LoginModel;
-import top.shixinzhang.office.data.source.LoginRepository;
 
 import static top.shixinzhang.office.utils.CheckUtils.checkNotNull;
 
@@ -26,9 +27,15 @@ public class LoginPresenter implements LoginContract.Presenter {
     private LoginModel mRepository;
     private LoginContract.View mLoginView;
 
+    @Inject
     public LoginPresenter(@NonNull LoginModel repository, @NonNull LoginContract.View view) {
         mRepository = checkNotNull(repository);
         mLoginView = checkNotNull(view);
+//        mLoginView.setPresenter(this);
+    }
+
+    @Inject
+    public void setPresenter(){
         mLoginView.setPresenter(this);
     }
 

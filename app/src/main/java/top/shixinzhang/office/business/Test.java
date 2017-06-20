@@ -1,4 +1,4 @@
-package top.shixinzhang.office.test;
+package top.shixinzhang.office.business;
 
 /**
  * Description:
@@ -11,7 +11,5 @@ package top.shixinzhang.office.test;
  * <br> https://about.me/shixinzhang
  */
 
-public class DaggerTest {
-    public static void main(String[] args) {
-    }
+public class Test {
 }

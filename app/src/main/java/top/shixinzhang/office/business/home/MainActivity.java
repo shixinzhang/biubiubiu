@@ -1,4 +1,4 @@
-package top.shixinzhang.office;
+package top.shixinzhang.office.business.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import top.shixinzhang.office.login.LoginActivity;
-import top.shixinzhang.office.test.DaggerSampleActivity;
+import top.shixinzhang.office.R;
+import top.shixinzhang.office.business.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
             startActivity(new Intent(this, LoginActivity.class));
         } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, DaggerSampleActivity.class));
+//            startActivity(new Intent(this, DaggerSampleActivity.class));
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
