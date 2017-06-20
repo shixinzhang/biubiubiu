@@ -1,9 +1,7 @@
 package top.shixinzhang.office.test.howtouse;
 
 import android.util.Log;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import android.view.View;
 
 /**
  * Description:
@@ -16,13 +14,12 @@ import javax.inject.Singleton;
  * <br> https://about.me/shixinzhang
  */
 
-public class Person {
+public class ViewPerson {
     private final String TAG = this.getClass().getSimpleName();
+    private View mView;
 
-//    @Inject
-//    @Singleton
-    public Person() {
-        Log.i(TAG, "Person is created!!");
+    public ViewPerson(final View view) {
+        mView = view;
+        Log.i(TAG, "ViewPerson is created! " + mView.toString());
     }
-
 }
