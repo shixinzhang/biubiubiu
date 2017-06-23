@@ -20,9 +20,12 @@ public class LoginRepository implements LoginModel {
         //do some init work
     }
 
-    private volatile static LoginRepository mInstance = new LoginRepository();
+    private volatile static LoginRepository mInstance;
 
     public static LoginRepository getInstance() {
+        if (mInstance == null){
+            mInstance = new LoginRepository();
+        }
         return mInstance;
     }
 

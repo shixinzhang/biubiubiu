@@ -1,13 +1,15 @@
-package top.shixinzhang.office.business.login;
+package top.shixinzhang.office.features.login;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import javax.inject.Inject;
 
 import top.shixinzhang.office.MyApplication;
 import top.shixinzhang.office.base.BaseFragmentActivity;
+import top.shixinzhang.office.data.DataManager;
 import top.shixinzhang.office.data.source.LoginRepository;
 
 /**
@@ -22,12 +24,15 @@ import top.shixinzhang.office.data.source.LoginRepository;
  */
 
 public class LoginActivity extends BaseFragmentActivity {
+    private final String TAG = this.getClass().getSimpleName();
     private LoginFragment mFragment;
 
     @Inject
     LoginPresenter mLoginPresenter;
-//    @Inject
-    ProgressDialog mProgressDialog;
+    @Inject
+    DataManager mDataManager;
+
+    LoginComponent mLoginComponent;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -35,19 +40,23 @@ public class LoginActivity extends BaseFragmentActivity {
 
 //        new LoginPresenter(LoginRepository.getInstance(), getFragment());
 
-        MyApplication.AppComponent component = ((MyApplication) getApplication()).getComponent();
-        DaggerLoginComponent.builder()
-                .appComponent(component)
-                .loginModule(new LoginModule(getFragment()))
-                .build()
-                .inject(this);
+        getComponent().inject(this);
 
-        if (mProgressDialog != null){
-            mProgressDialog.show();
+        Log.d(TAG, mDataManager.toString());
+
+        DataManager dataManager = ((MyApplication) getApplication()).getComponent().getDataManager();
+
+    }
+
+    LoginComponent getComponent() {
+        if (mLoginComponent == null) {
+            MyApplication.AppComponent component = ((MyApplication) getApplication()).getComponent();
+            mLoginComponent = DaggerLoginComponent.builder()
+                    .appComponent(component)
+                    .loginModule(new LoginModule(getFragment()))
+                    .build();
         }
-
-        ProgressDialog progressDialog = component.getProgressDialog();
-
+        return mLoginComponent;
     }
 
     @Override

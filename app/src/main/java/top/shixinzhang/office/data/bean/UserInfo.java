@@ -1,4 +1,4 @@
-package top.shixinzhang.office.data;
+package top.shixinzhang.office.data.bean;
 
 import java.io.Serializable;
 
@@ -14,6 +14,7 @@ import java.io.Serializable;
  */
 
 public class UserInfo implements Serializable {
+    private long userId;
     private String username;
     private String description;
     private int number;
@@ -24,6 +25,15 @@ public class UserInfo implements Serializable {
 
     public UserInfo setUsername(final String username) {
         this.username = username;
+        return this;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public UserInfo setUserId(final long userId) {
+        this.userId = userId;
         return this;
     }
 

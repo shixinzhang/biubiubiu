@@ -1,24 +1,24 @@
-package top.shixinzhang.office.common;
+package top.shixinzhang.office.common.qualifier;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import javax.inject.Scope;
+import javax.inject.Qualifier;
 
 /**
  * Description:
- * <br>
+ * <br> 标识 Activity 的 Context
  * <p>
- * <br> Created by shixinzhang on 17/6/20.
+ * <br> Created by shixinzhang on 17/6/23.
  * <p>
  * <br> Email: shixinzhang2016@gmail.com
  * <p>
  * <br> https://about.me/shixinzhang
  */
 
-@Scope
+@Qualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FragmentScope {
+public @interface ActivityContext {
 }

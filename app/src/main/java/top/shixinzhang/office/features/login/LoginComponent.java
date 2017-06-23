@@ -1,8 +1,8 @@
-package top.shixinzhang.office.business.login;
+package top.shixinzhang.office.features.login;
 
 import dagger.Component;
 import top.shixinzhang.office.MyApplication;
-import top.shixinzhang.office.common.FragmentScope;
+import top.shixinzhang.office.common.scope.PerFragment;
 
 /**
  * Description:
@@ -15,8 +15,9 @@ import top.shixinzhang.office.common.FragmentScope;
  * <br> https://about.me/shixinzhang
  */
 
-@FragmentScope
+@PerFragment
 @Component(modules = LoginModule.class, dependencies = MyApplication.AppComponent.class)
 public interface LoginComponent {
     void inject(LoginActivity activity);
+//
 }

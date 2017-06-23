@@ -1,4 +1,4 @@
-package top.shixinzhang.office.business.login;
+package top.shixinzhang.office.features.login;
 
 import dagger.Module;
 import dagger.Provides;

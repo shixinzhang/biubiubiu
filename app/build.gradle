@@ -20,21 +20,27 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-//    compile 'top.shixinzhang:sxframework:1.0.3'
+//    compile 'top.shixinzhang:sxframework:1.0.4'
     compile "com.android.support:appcompat-v7:$rootProject.supportLibVersion"
     compile "com.android.support:design:$rootProject.supportLibVersion"
     compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     apt "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     compile "com.google.dagger:dagger:$rootProject.daggerVersion"
     apt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-
 //    annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
 
+    compile(name: 'sxframework-release', ext: 'aar')
     testCompile 'junit:junit:4.12'
 }

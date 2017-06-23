@@ -1,4 +1,4 @@
-package top.shixinzhang.office.business.home;
+package top.shixinzhang.office.features.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import top.shixinzhang.office.R;
-import top.shixinzhang.office.business.login.LoginActivity;
+import top.shixinzhang.office.features.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
