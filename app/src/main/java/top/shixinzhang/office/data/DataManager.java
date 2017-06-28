@@ -12,7 +12,7 @@ import top.shixinzhang.office.data.local.SharedPrefsHelper;
 
 /**
  * Description:
- * <br>
+ * <br> 数据管理，包括本地 sp、db 以及网络
  * <p>
  * <br> Created by shixinzhang on 17/6/23.
  * <p>

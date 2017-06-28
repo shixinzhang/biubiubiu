@@ -40,7 +40,9 @@ public abstract class BaseFragmentActivity extends AppCompatActivity {
 
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), getFragment(), R.id.contentFrame);
     }

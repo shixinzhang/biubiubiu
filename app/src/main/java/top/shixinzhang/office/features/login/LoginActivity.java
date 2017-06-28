@@ -25,8 +25,8 @@ import top.shixinzhang.office.data.source.LoginRepository;
 
 public class LoginActivity extends BaseFragmentActivity {
     private final String TAG = this.getClass().getSimpleName();
-    private LoginFragment mFragment;
 
+    private LoginFragment mFragment;
     @Inject
     LoginPresenter mLoginPresenter;
     @Inject
