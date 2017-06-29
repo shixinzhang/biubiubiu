@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 //            startActivity(new Intent(this, DaggerSampleActivity.class));
         } else if (id == R.id.nav_slideshow) {
-
+            startActivity(new Intent(this, top.shixinzhang.manager.LoginActivity.class));
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
