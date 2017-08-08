@@ -11,6 +11,10 @@ package top.shixinzhang.office.base;
  * <br> https://about.me/shixinzhang
  */
 
-public interface BasePresenter {
+public interface BasePresenter<V> {
+    void onAttach(V mvpView);
+
+    void onDetach();
+
     void start();
 }

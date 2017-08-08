@@ -55,4 +55,12 @@ public abstract class BaseFragmentActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
+    /**
+     * 检查 token 是否过期
+     * @return
+     */
+    public boolean isTokenExpired(){
+        return false;
+    }
 }
